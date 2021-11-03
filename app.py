@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 model = pickle.load(open('CHW_Pump_1_Speed(%)_MODEL.pkl', 'rb'))
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET','POST'])
 def Home():
     return render_template('chw_Pump_1_Speed.html')
 
