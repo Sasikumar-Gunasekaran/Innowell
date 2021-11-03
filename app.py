@@ -14,12 +14,12 @@ app = Flask(__name__)
 
 model = pickle.load(open('CHW_Pump_1_Speed(%)_MODEL.pkl', 'rb'))
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['POST'])
 def Home():
     return render_template('chw_Pump_1_Speed.html')
 
 
-@app.route('/predict', methods=['GET','POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     # prediction_text_all_pickles = 'Water prediction should be:\n'
     # for model_file in list_of_model_pickles:
