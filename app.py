@@ -19,7 +19,7 @@ def Home():
     return render_template('chw_Pump_1_Speed.html')
 
 
-@app.route('/predict', methods=['POST'])
+@app.route("/predict", methods = ["GET", "POST"])
 def predict():
     # prediction_text_all_pickles = 'Water prediction should be:\n'
     # for model_file in list_of_model_pickles:
