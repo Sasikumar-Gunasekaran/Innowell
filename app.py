@@ -2,16 +2,22 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 from numpy.core.numeric import outer
+import jsonify
+import requests
+import sklearn
+import pandas as pd
+
 # app = Flask(__name__)
-app = Flask(__name__, template_folder='./templates', static_folder='./static')
+app = Flask(__name__)
 
 # list_of_model_pickles = ['CHW_Pump_1_Speed(%)_MODEL.pkl'] # add any model pickle file here
 
 model = pickle.load(open('CHW_Pump_1_Speed(%)_MODEL.pkl', 'rb'))
 
-@app.route('/')
-def helloworld():
+@app.route('/', methods=['GET'])
+def Home():
     return render_template('chw_Pump_1_Speed.html')
+
 
 @app.route('/predict', methods=['GET','POST'])
 def predict():
